@@ -1,0 +1,108 @@
+.actionButtons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 16px;
+  padding: 8px;
+  gap: 16px;
+}
+.deleteButton {
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid var(--Primary-6, #ff182b);
+    background: var(--Primary-6, #ff182b);
+    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-self: stretch;
+    gap: 8px;
+    overflow: hidden;
+    margin: auto 0;
+    padding: 8px 15px;
+    cursor: pointer;
+  }
+  
+  .iconDelete {
+    display: flex;
+    width: 14px;
+    height: 14px;
+    margin: auto 0;
+  }
+  
+  .buttonTextDelete {
+    align-self: stretch;
+    margin: auto 0;
+    color: var(--sds-color-text-inverse);
+    font-size: 14px;
+    color: #fff;
+  }
+  
+  @media (max-width: 991px) {
+    .deleteButton {
+      white-space: initial;
+    }
+  }
+  
+  .newButton {
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid var(--Primary-6, #1890ff);
+    background: var(--Primary-6, #1890ff);
+    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
+    display: flex;
+    gap: 8px;
+    overflow: hidden;
+    padding: 4px 15px;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 991px) {
+    .newButton {
+      white-space: initial;
+    }
+  }
+  
+  .iconNew {
+    display: flex;
+    width: 14px;
+    height: 15px;
+    margin: auto 0;
+  }
+  
+  .buttonTextNew {
+    align-self: stretch;
+    margin: auto 0;
+    color: var(--sds-color-text-inverse);
+    font-size: 14px;
+    color: #fff;
+  }
+
+  @media (max-width: 991px) {
+    .newButton {
+      white-space: initial;
+    }
+  }
+
+  .editButton {
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-self: stretch;
+    overflow: hidden;
+    margin: auto 0;
+    padding: 4px 15px;
+    cursor: pointer;
+  }
+
+  .iconEdit {
+    display: flex;
+    width: 1px;
+    height: 1px;
+    margin: auto 0;
+  }
+
+  @media (max-width: 991px) {
+    .editButton {
+      white-space: initial;
+    }
+  }
