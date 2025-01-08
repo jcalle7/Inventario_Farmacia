@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../CSS/HearderForm.css'; 
+import '../../CSS/Principio_Activo/HearderForm.css'; 
 
 interface PageHeaderProps {
   title: string;

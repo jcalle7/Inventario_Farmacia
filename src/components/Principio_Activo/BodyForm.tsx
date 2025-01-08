@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Table } from 'antd';
 import type { TableColumnsType, TableProps } from 'antd';
-import  '../../CSS/BodyForm.css';
+import  '../../CSS/Principio_Activo/BodyForm.css';
 import { EditButton } from './ButtonsForm';
 
 type TableRowSelection<T extends object = object> = TableProps<T>['rowSelection'];

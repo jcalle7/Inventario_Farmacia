@@ -1,5 +1,5 @@
 import * as React from 'react';
-import '../../CSS/ButtonsForm.css';
+import '../../CSS/Principio_Activo/ButtonsForm.css';
 
 interface DangerButtonProps {
   text: string;
@@ -8,6 +8,7 @@ interface DangerButtonProps {
 }
 
 export const DeleteButton: React.FC<DangerButtonProps> = ({text, onClick, icon}) => {
+
 
   return (
     <button 
@@ -54,7 +55,7 @@ export const EditButton: React.FC<EditButtonProps> = ({ onClick, icon }) => {
       onClick={onClick}
       type="button"
     >
-      {icon} <span className={"iconEdit"}>{icon}</span>
+      {icon} <span className={"iconEdit"}></span>
     </button>
   );
 };

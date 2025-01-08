@@ -6,7 +6,7 @@ import deleteIcon from '/public/Eliminar.svg';
 import newIcon from '/public/Nuevo.svg';
 
 
-export default function Components () {
+export default function Principio_Component () {
   
     const handleSearch = (value: string) => {
       console.log('Valor de búsqueda:', value);
@@ -25,28 +25,36 @@ export default function Components () {
     };
 
     return(
-
-      <div className="bodyContainer">
+  <>
+      <div className="headerContainer">
         <PageHeader title = "Principio Activo" SubTitle = "Formulario"/>
-        <SearchToolbar 
-          onSearch={handleSearch}
-          icon={<img src={searchIcon} alt=""/>}
-        /> 
+      </div>
+    
+      <div className="bodyContainer">
         <div className="tableContainer">
+          <div className ="headerSearchContainer">
+            <div className ="Space">
+              <SearchToolbar 
+                onSearch={handleSearch}
+                icon={<img src={searchIcon} alt=""/>}
+              />
+            </div>
+            <div className ="actionButtons">
+              <DeleteButton
+                text="Eliminar"
+                onClick={handleDangerClick}
+                icon={<img src={deleteIcon} alt=""/>}
+              />
+              <NewButton 
+                text="Nuevo"
+                onClick={handleNewClick}
+                icon={<img src={newIcon} alt=""/>}
+              />
+            </div>
+          </div>  
           <DataTable onEditClick={handleEditClick}/> 
         </div>
-        <div className='actionButtons'>
-          <DeleteButton
-            text="Eliminar"
-            onClick={handleDangerClick}
-            icon={<img src={deleteIcon} alt=""/>}
-          />
-          <NewButton 
-            text="Nuevo"
-            onClick={handleNewClick}
-            icon={<img src={newIcon} alt=""/>}
-          />
-        </div>
       </div>
+  </>
     );
 };
