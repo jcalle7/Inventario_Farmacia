@@ -27,7 +27,7 @@ const columns: TableColumnsType<DataType> = [
   { title: 'Editar', dataIndex: 'editar'},
 ];
 
-const dataSource = Array.from<DataType>({ length: 60 }).map<DataType>((_, i) => ({
+const dataSource = Array.from<DataType>({ length: 20 }).map<DataType>((_, i) => ({
   key: i,
   nombre: 'Ácido Tranexamico',
   observación: 'Uso moderado',

@@ -1,13 +1,13 @@
 import * as React from 'react';
 import '../../CSS/Principio_Activo/ButtonsForm.css';
 
-interface DangerButtonProps {
+interface DeleteButtonProps {
   text: string;
   onClick?: () => void;
   icon?: React.ReactNode;
 }
 
-export const DeleteButton: React.FC<DangerButtonProps> = ({text, onClick, icon}) => {
+export const DeleteButton: React.FC<DeleteButtonProps> = ({text, onClick, icon}) => {
 
 
   return (

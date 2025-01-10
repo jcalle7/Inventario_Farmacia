@@ -1,27 +1,58 @@
+import { useState } from 'react';
 import { SearchToolbar, DataTable } from '../components/Principio_Activo/BodyForm';
 import { DeleteButton, NewButton } from '../components/Principio_Activo/ButtonsForm';
 import { PageHeader } from '../components/Principio_Activo/HeaderForm';
+import { ExclamationCircleFilled } from '@ant-design/icons';
+import { Modal } from 'antd';
+import  NewPrincipio  from '../components/Principio_Activo/Modal/NewPrincipio';
+import EditPrincipio from '../components/Principio_Activo/Modal/EditPrincipio';
 import searchIcon from '../assets/buscar.svg'; 
 import deleteIcon from '/public/Eliminar.svg';
 import newIcon from '/public/Nuevo.svg';
 
-
 export default function Principio_Component () {
+
+  const [modal, contextHolder] = Modal.useModal();
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isEditModalVisible, setIsEditModalVisible] = useState(false);
+
+  const showConfirm = () => {
+    modal.confirm({
+      title: '¿Está seguro de eliminar este Principio Activo?',
+      icon: <ExclamationCircleFilled/>,
+      okText: 'OK', 
+      cancelText: 'Cancelar',
+    });
+  };
   
     const handleSearch = (value: string) => {
       console.log('Valor de búsqueda:', value);
     };
 
-    let handleDangerClick = () => {
-      console.log('Eliminar un Principio Activo');
+    const handleNewClick = () => {
+      setIsModalVisible(true);
     };
 
-    let handleNewClick = () => {
-      console.log('Crear un Principio Activo');
+    const handleCancel = () => {
+      setIsModalVisible(false);
     };
+
+    const handleSave = () => {
+      console.log('Formulario guardado');
+      setIsModalVisible(false);
+    }; 
 
     const handleEditClick = () => {
-      console.log('Editar un Principio Activo');
+      setIsEditModalVisible(true);
+    };
+  
+    const handleEditCancel = () => {
+      setIsEditModalVisible(false);
+    };
+  
+    const handleEditSave = () => {
+      console.log('Formulario de edición guardado');
+      setIsEditModalVisible(false);
     };
 
     return(
@@ -42,7 +73,7 @@ export default function Principio_Component () {
             <div className ="actionButtons">
               <DeleteButton
                 text="Eliminar"
-                onClick={handleDangerClick}
+                onClick={showConfirm}
                 icon={<img src={deleteIcon} alt=""/>}
               />
               <NewButton 
@@ -55,6 +86,30 @@ export default function Principio_Component () {
           <DataTable onEditClick={handleEditClick}/> 
         </div>
       </div>
+
+      <Modal
+        title="Crear Nuevo Principio Activo"
+        open={isModalVisible}
+        onCancel={handleCancel} 
+        onOk={handleSave} 
+        okText="Guardar"
+        cancelText="Cancelar"
+      >
+        <NewPrincipio/>
+        </Modal>
+
+        <Modal
+        title="Editar Principio Activo"
+        open={isEditModalVisible}
+        onCancel={handleEditCancel}
+        onOk={handleEditSave}
+        okText="Guardar Cambios"
+        cancelText="Cancelar"
+      >
+        <EditPrincipio />
+      </Modal>
+        
+      {contextHolder}
   </>
     );
 };
