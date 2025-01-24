@@ -1,5 +1,5 @@
 import * as React from 'react';
-import '../../CSS/Principio_Activo/ButtonsForm.css';
+import '../../CSS/Principio_Activo/ButtonsPrincipio.css';
 
 interface DeleteButtonProps {
   text: string;
@@ -55,7 +55,7 @@ export const EditButton: React.FC<EditButtonProps> = ({ onClick, icon }) => {
       onClick={onClick}
       type="button"
     >
-      {icon} <span className={"iconEdit"}></span>
+    {icon} <span className={"iconEdit"}></span>
     </button>
   );
 };

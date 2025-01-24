@@ -1,120 +1,105 @@
-import React from 'react';
-import { Form, Input, Select, Checkbox, Row, Col } from 'antd';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Autocomplete from '@mui/material/Autocomplete';
+import Stack from '@mui/material/Stack';
+import SaveIcon from '@mui/icons-material/Save';
+//import Chip from '@mui/material/Chip';//
 
-const NewPrincipio: React.FC = () => {
-  const [form] = Form.useForm();
+const datos = [
+  { title: 'Afección Hepática' },
+  { title: 'Aminoácido' },
+  { title: 'Analgésico' },
+  { title: 'Adhesica' },
+  { title: 'Acción Anti' },
+];
 
-  const onCheckboxChange = (checkedValues: any) => {
-    console.log('checked = ', checkedValues);
-  };
-
-  const grupoTerapeuticoOptions = Array.from({ length: 26 }, (_, i) => ({
-    value: i.toString(36) + i,
-    label: i.toString(36) + i,
-  }));
-
-  const categoriaOptions = [
-    { value: '1', label: 'Not Identified' },
-    { value: '2', label: 'Closed' },
-    { value: '3', label: 'Communicated' },
-    { value: '4', label: 'Identified' },
-    { value: '5', label: 'Resolved' },
-    { value: '6', label: 'Cancelled' },
-  ];
+export default function NewPrincipioModal({open, handleClose, onSave} : {open: boolean; handleClose: () => void; onSave: () => void; }) {
 
   return (
-    <Form
-      form={form}
-      style={{ maxWidth: 600 }}
-      initialValues={{ variant: 'filled' }}
-    >
-      {/* Campo Nombre */}
-      <Form.Item
-        label="Nombre"
-        name="Nombre"
-        rules={[{ required: true, message: 'Campo requerido!' }]}
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        maxWidth={false}
+        PaperProps={{
+            sx: {
+                width: '80%',
+                height: '80%',
+            }
+        }}
       >
-        <Input />
-      </Form.Item>
+        <DialogTitle id="form-dialog-title">Crear Nuevo Principio Activo</DialogTitle>
+        <DialogContent>
+          {/* Inputs de texto */}
+          <Box
+            component="form"
+            sx={{ '& > :not(style)': {  m: 2, marginLeft: 0, width: '100%' } }}
+            noValidate
+            autoComplete="off"
+          >
+            <TextField id="inputNombre" label="Nombre" variant="outlined" />
+            <TextField id="inputObservación" label="Observación" variant="outlined" />
+          </Box>
 
-      {/* Campo Observación */}
-      <Form.Item
-        label="Observación"
-        name="Observación"
-        rules={[{ required: true, message: 'Campo requerido!' }]}
-      >
-        <Input />
-      </Form.Item>
+          {/* Checkboxes */}
+          <FormGroup row>
+          <Box sx={{ marginRight: 1 }}>
+          </Box>
+            <FormControlLabel
+              control={<Checkbox />}
+              label="Estado"
+            />
+              <FormControlLabel
+              control={<Checkbox />}
+              label="MAR"
+            />
+          </FormGroup>
 
-      {/* Campo Mar (Checkboxes) */}
-      <Form.Item
-        label="Mar"
-        name="Mar"
-        rules={[{ required: true, message: 'Por favor seleccione una opción!' }]}
-      >
-        <Checkbox.Group onChange={onCheckboxChange}>
-          <Row>
-            <Col>
-              <Checkbox value="Sí">Sí</Checkbox>
-            </Col>
-            <Col>
-              <Checkbox value="No">No</Checkbox>
-            </Col>
-          </Row>
-        </Checkbox.Group>
-      </Form.Item>
+          {/* Inputs seleccionables */}
+          <Stack spacing={3} sx={{ width: '100%', mt: 2 }}>
+            <Autocomplete
+              multiple
+              id="tags-standard"
+              options={datos}
+              getOptionLabel={(option) => option.title}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  variant="outlined"
+                  label="Grupo Terapéutico"
+                  placeholder="Seleccionar"
+                />
+              )}
+            />
+          </Stack>
 
-      <Form.Item
-        label="Estado"
-        name="Estado"
-        rules={[{ required: true, message: 'Por favor seleccione una opción!' }]}
-      >
-        <Checkbox.Group onChange={onCheckboxChange}>
-          <Row>
-            <Col>
-              <Checkbox value="Disponible">Disponible</Checkbox>
-            </Col>
-            <Col>
-              <Checkbox value="No Disponible">No Disponible</Checkbox>
-            </Col>
-          </Row>
-        </Checkbox.Group>
-      </Form.Item>
+          <Stack sx={{ width: '100%', mt: 4 }}>
+          <Autocomplete
+              disablePortal
+              options={datos}
+              getOptionLabel={(option) => option.title}
+              renderInput={(params) => <TextField {...params} label="Categoría" placeholder='Seleccionar'/>}
+          />
+          </Stack>
 
-      {/* Campo Grupo Terapéutico (Select con múltiples opciones) */}
-      <Form.Item
-        label="Grupo Terapéutico"
-        name="Grupo Terapéutico"
-        rules={[{ required: true, message: 'Campo requerido!' }]}
-      >
-        <Select
-          mode="tags"
-          style={{ width: '100%' }}
-          placeholder="Seleccione varios grupos terapéuticos"
-          options={grupoTerapeuticoOptions}
-        />
-      </Form.Item>
-
-      {/* Campo Categoría (Select con una sola opción) */}
-      <Form.Item
-        label="Categoría"
-        name="Categoría"
-        rules={[{ required: true, message: 'Campo requerido!' }]}
-      >
-        <Select
-          showSearch
-          style={{ width: '100%' }}
-          placeholder="Seleccione una categoría"
-          optionFilterProp="label"
-          filterSort={(optionA, optionB) =>
-            (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
-          }
-          options={categoriaOptions}
-        />
-      </Form.Item>
-
-    </Form>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} sx={{color: 'red', borderColor: 'red'}} variant='outlined'>Cancelar</Button>
+          <Button 
+            onClick={onSave} 
+            variant="contained" 
+            color="success"
+            startIcon={<SaveIcon />}>
+            Guardar
+          </Button>
+        </DialogActions>
+      </Dialog>
   );
-};
-
-export default NewPrincipio;
+}

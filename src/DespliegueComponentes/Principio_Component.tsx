@@ -1,28 +1,35 @@
 import { useState } from 'react';
-import { SearchToolbar, DataTable } from '../components/Principio_Activo/BodyForm';
-import { DeleteButton, NewButton } from '../components/Principio_Activo/ButtonsForm';
-import { PageHeader } from '../components/Principio_Activo/HeaderForm';
-import { ExclamationCircleFilled } from '@ant-design/icons';
-import { Modal } from 'antd';
-import  NewPrincipio  from '../components/Principio_Activo/Modal/NewPrincipio';
-import EditPrincipio from '../components/Principio_Activo/Modal/EditPrincipio';
-import searchIcon from '../assets/buscar.svg'; 
+import  DataTable from '../components/Principio_Activo/BodyPrincipio';
+import  SearchToolbar from '../components/Principio_Activo/SearchToolBarPrincipio';
+import { DeleteButton, NewButton } from '../components/Principio_Activo/ButtonsPrincipio';
+import { PageHeader } from '../components/Principio_Activo/HeaderPrincipio';
+import { Dialog, DialogActions, DialogContent, DialogTitle, Button, DialogContentText } from '@mui/material';
+import WarningIcon from '@mui/icons-material/Warning'; 
+import  NewPrincipioModal  from '../components/Principio_Activo/Modal/NewPrincipio';
+import EditPrincipioModal from '../components/Principio_Activo/Modal/EditPrincipio';
 import deleteIcon from '/public/Eliminar.svg';
 import newIcon from '/public/Nuevo.svg';
 
 export default function Principio_Component () {
 
-  const [modal, contextHolder] = Modal.useModal();
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [isEditModalVisible, setIsEditModalVisible] = useState(false);
+  const [isNewModalOpen, setIsNewModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
+  
 
-  const showConfirm = () => {
-    modal.confirm({
-      title: '¿Está seguro de eliminar este Principio Activo?',
-      icon: <ExclamationCircleFilled/>,
-      okText: 'OK', 
-      cancelText: 'Cancelar',
-    });
+  const showDeleteModal = () => {
+    setOpenDeleteModal(true);
+  };
+
+  // Cerrar modal de confirmación de eliminación
+  const handleDeleteClose = () => {
+    setOpenDeleteModal(false);
+  };
+
+  // Confirmar eliminación
+  const handleDeleteConfirm = () => {
+    console.log('Elemento eliminado');
+    setOpenDeleteModal(false);
   };
   
     const handleSearch = (value: string) => {
@@ -30,50 +37,48 @@ export default function Principio_Component () {
     };
 
     const handleNewClick = () => {
-      setIsModalVisible(true);
+      setIsNewModalOpen(true);
     };
 
-    const handleCancel = () => {
-      setIsModalVisible(false);
+    const handleNewClose = () => {
+      setIsNewModalOpen(false);
     };
 
-    const handleSave = () => {
+    const handleNewSave = () => {
       console.log('Formulario guardado');
-      setIsModalVisible(false);
+      setIsNewModalOpen(false);
     }; 
 
     const handleEditClick = () => {
-      setIsEditModalVisible(true);
+      setIsEditModalOpen(true);
     };
   
-    const handleEditCancel = () => {
-      setIsEditModalVisible(false);
+    const handleEditClose = () => {
+      setIsEditModalOpen(false);
     };
   
     const handleEditSave = () => {
       console.log('Formulario de edición guardado');
-      setIsEditModalVisible(false);
+      setIsEditModalOpen(false);
     };
 
     return(
   <>
-      <div className="headerContainer">
-        <PageHeader title = "Principio Activo" SubTitle = "Formulario"/>
-      </div>
-    
       <div className="bodyContainer">
         <div className="tableContainer">
           <div className ="headerSearchContainer">
+            <div className="headerContainer">
+              <PageHeader title = "Principio Activo" />
+            </div>
             <div className ="Space">
               <SearchToolbar 
                 onSearch={handleSearch}
-                icon={<img src={searchIcon} alt=""/>}
               />
             </div>
             <div className ="actionButtons">
               <DeleteButton
                 text="Eliminar"
-                onClick={showConfirm}
+                onClick={showDeleteModal}
                 icon={<img src={deleteIcon} alt=""/>}
               />
               <NewButton 
@@ -87,29 +92,37 @@ export default function Principio_Component () {
         </div>
       </div>
 
-      <Modal
-        title="Crear Nuevo Principio Activo"
-        open={isModalVisible}
-        onCancel={handleCancel} 
-        onOk={handleSave} 
-        okText="Guardar"
-        cancelText="Cancelar"
-      >
-        <NewPrincipio/>
-        </Modal>
+      <Dialog open={openDeleteModal} onClose={handleDeleteClose}>
+        <DialogTitle>¿Está seguro de eliminar este Principio Activo?</DialogTitle>
+        <DialogContent>
+        <DialogContentText sx={{ display: 'flex', alignItems: 'center' }}>
+            <WarningIcon sx={{ marginRight: 2 }} color="error" />
+            Esta acción no se puede deshacer.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleDeleteClose} sx={{color: 'red', borderColor: 'red'}} variant="outlined">
+            Cancelar
+          </Button>
+          <Button onClick={handleDeleteConfirm} sx={{color: 'white', borderColor: '#1890ff', backgroundColor: '#1890ff'}} variant="contained">
+            OK
+          </Button>
+        </DialogActions>
+      </Dialog>
 
-        <Modal
-        title="Editar Principio Activo"
-        open={isEditModalVisible}
-        onCancel={handleEditCancel}
-        onOk={handleEditSave}
-        okText="Guardar Cambios"
-        cancelText="Cancelar"
-      >
-        <EditPrincipio />
-      </Modal>
         
-      {contextHolder}
+      <NewPrincipioModal
+        open={isNewModalOpen}
+        handleClose={handleNewClose}
+        onSave={handleNewSave} 
+      />
+
+      <EditPrincipioModal
+        open={isEditModalOpen}
+        handleClose={handleEditClose}
+        onSave={handleEditSave}
+      />
+        
   </>
     );
 };

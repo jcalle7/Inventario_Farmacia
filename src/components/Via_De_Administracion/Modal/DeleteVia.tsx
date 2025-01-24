@@ -1,26 +1,35 @@
-import { ExclamationCircleOutlined } from '@ant-design/icons';
-import {  Modal, Button, Space } from 'antd';
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
 
-const DeletePrincipio: React.FC = () => {
-  const [modal, contextHolder] = Modal.useModal();
+export default function DeleteVia() {
+  const [open, setOpen] = React.useState(false);
 
-  const confirm = () => {
-    modal.confirm({
-      title: 'Confirm',
-      icon: <ExclamationCircleOutlined />,
-      okText: 'OK',
-      cancelText: 'Cancel',
-    });
+  const handleClickOpen = () => {
+    setOpen(true);
   };
 
-return (
-  <>
-    <Space>
-      <Button onClick={confirm}>Confirm</Button>
-    </Space>
-    {contextHolder}
-  </>
-);
-};
+  const handleClose = () => {
+    setOpen(false);
+  };
 
-export default DeletePrincipio;
+  return (
+    <React.Fragment>
+      <Button variant="outlined" onClick={handleClickOpen}>
+        Open alert dialog
+      </Button>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+      >
+        <DialogActions>
+          <Button onClick={handleClose}></Button>
+          <Button onClick={handleClose} autoFocus>
+          
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </React.Fragment>
+  );
+}

@@ -1,69 +1,130 @@
-import { SearchToolbar, DataTable } from '../components/Principio_Activo/BodyForm';
-import { DeleteButton, NewButton } from '../components/Principio_Activo/ButtonsForm';
-import { PageHeader } from '../components/Principio_Activo/HeaderForm';
-import { ExclamationCircleFilled } from '@ant-design/icons';
-import { Modal } from 'antd';
-import searchIcon from '../assets/buscar.svg'; 
+import { useState } from 'react';
+import  DataTableVia from '../components/Via_De_Administracion/BodyVia';
+import  SearchToolBarVia from '../components/Via_De_Administracion/SearchToolBarVia';
+import { DeleteButtonVia, NewButtonVia } from '../components/Via_De_Administracion/ButtonsVia';
+import { PageHeaderVia } from '../components/Via_De_Administracion/HeaderVia';
+import { Dialog, DialogActions, DialogContent, DialogTitle, Button, DialogContentText } from '@mui/material';
+import WarningIcon from '@mui/icons-material/Warning'; 
+import NewViaModal  from '../components/Via_De_Administracion/Modal/NewVia';
+import EditViaModal from '../components/Via_De_Administracion/Modal/EditVia';
 import deleteIcon from '/public/Eliminar.svg';
 import newIcon from '/public/Nuevo.svg';
 
 export default function Via_Component () {
 
-  const [modal, contextHolder] = Modal.useModal();
+  const [isNewModalViaOpen, setIsNewModalViaOpen] = useState(false);
+  const [isEditModalViaOpen, setIsEditModalViaOpen] = useState(false);
+  const [openDeleteModalVia, setOpenDeleteModalVia] = useState(false);
+  
 
-  const showConfirm = () => {
-    modal.confirm({
-      title: '¿Está seguro de eliminar esta Vía de Administración?',
-      icon: <ExclamationCircleFilled/>,
-      okText: 'OK', 
-      cancelText: 'Cancelar',
-    });
+  const showDeleteModal = () => {
+    setOpenDeleteModalVia(true);
+  };
+
+  // Cerrar modal de confirmación de eliminación
+  const handleDeleteClose = () => {
+    setOpenDeleteModalVia(false);
+  };
+
+  // Confirmar eliminación
+  const handleDeleteConfirm = () => {
+    console.log('Elemento eliminado');
+    setOpenDeleteModalVia(false);
   };
   
     const handleSearch = (value: string) => {
       console.log('Valor de búsqueda:', value);
     };
 
-    let handleNewClick = () => {
-      console.log('Crear un Principio Activo');
+    const handleNewClick = () => {
+      setIsNewModalViaOpen(true);
     };
 
+    const handleNewClose = () => {
+      setIsNewModalViaOpen(false);
+    };
+
+    const handleNewSave = () => {
+      console.log('Formulario guardado');
+      setIsNewModalViaOpen(false);
+    }; 
+
     const handleEditClick = () => {
-      console.log('Editar un Principio Activo');
+      setIsEditModalViaOpen(true);
+    };
+  
+    const handleEditClose = () => {
+      setIsEditModalViaOpen(false);
+    };
+  
+    const handleEditSave = () => {
+      console.log('Formulario de edición guardado');
+      setIsEditModalViaOpen(false);
     };
 
     return(
   <>
-      <div className="headerContainer">
-        <PageHeader title = "Via de Administración" SubTitle = "Formulario"/>
-      </div>
+
     
-      <div className="bodyContainer">
-        <div className="tableContainer">
-          <div className ="headerSearchContainer">
-            <div className ="Space">
-              <SearchToolbar 
+      <div className="bodyContainerVia">
+        <div className="tableContainerVia">
+          <div className ="headerSearchContainerVia">
+            <div className="headerContainerVia">
+            <PageHeaderVia title = "Vía de Administración" />
+            </div>
+            <div className ="SpaceVia">
+              <SearchToolBarVia 
                 onSearch={handleSearch}
-                icon={<img src={searchIcon} alt=""/>}
               />
             </div>
-            <div className ="actionButtons">
-              <DeleteButton
+            <div className ="actionButtonsVia">
+              <DeleteButtonVia
                 text="Eliminar"
-                onClick={showConfirm}
+                onClick={showDeleteModal}
                 icon={<img src={deleteIcon} alt=""/>}
               />
-              <NewButton 
+              <NewButtonVia 
                 text="Nuevo"
                 onClick={handleNewClick}
                 icon={<img src={newIcon} alt=""/>}
               />
             </div>
           </div>  
-          <DataTable onEditClick={handleEditClick}/> 
+          <DataTableVia onEditClick={handleEditClick}/> 
         </div>
       </div>
-      {contextHolder}
+
+    <Dialog open={openDeleteModalVia} onClose={handleDeleteClose}>
+        <DialogTitle>¿Está seguro de eliminar esta Vía de Administración?</DialogTitle>
+        <DialogContent>
+        <DialogContentText sx={{ display: 'flex', alignItems: 'center' }}>
+            <WarningIcon sx={{ marginRight: 2 }} color="error" />
+            Esta acción no se puede deshacer.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleDeleteClose} sx={{color: 'red', borderColor: 'red'}} variant="outlined">
+            Cancelar
+          </Button>
+          <Button onClick={handleDeleteConfirm} sx={{color: 'white', borderColor: '#1890ff', backgroundColor: '#1890ff'}} variant="contained">
+            OK
+          </Button>
+        </DialogActions>
+    </Dialog>
+
+        
+    <NewViaModal
+        open={isNewModalViaOpen}
+        handleClose={handleNewClose}
+        onSave={handleNewSave} 
+    />
+
+    <EditViaModal
+        open={isEditModalViaOpen}
+        handleClose={handleEditClose}
+        onSave={handleEditSave}
+    />
+        
   </>
     );
 };

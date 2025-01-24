@@ -1,23 +1,24 @@
 .actionButtons {
+  /*border: 1px solid black;*/
   display: flex;
   justify-content: flex-end;
   /* margin-top: 16px; */
-  padding: 8px;
+  padding: 15px !important;
   gap: 16px;
 }
 .deleteButton {
-    align-items:flex-end;
-    border-radius: 5px;
-    border: 1px solid var(--Primary-6, #ff182b);
-    background: var(--Primary-6, #ff182b);
-    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
-    display: flex;
-    align-self: stretch;
-    gap: 8px;
-    overflow: hidden;
-    margin: auto 0;
-    padding: 8px 15px;
-    cursor: pointer;
+  align-items:flex-end;
+  border-radius: 5px;
+  border: 1px solid var(--Primary-6, #ff182b);
+  background: var(--Primary-6, #ff182b);
+  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-self: stretch;
+  gap: 8px;
+  overflow: hidden;
+  margin: auto 0;
+  padding: 10px 15px !important;
+  cursor: pointer;
   }
   
   .iconDelete {
@@ -52,7 +53,7 @@
     gap: 8px;
     overflow: hidden;
     margin: auto 0;
-    padding: 8px 15px;
+    padding: 10px 15px !important;
   }
   
   @media (max-width: 991px) {
@@ -85,14 +86,13 @@
   .editButton {
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
-    display: flex;
     align-self: stretch;
     overflow: hidden;
-    margin: auto 0;
-    padding: 4px 15px;
+    margin: auto -8px !important;
+    padding: 10px 20px;
     cursor: pointer;
     border: none;
+    background: none;
   }
 
   .iconEdit {
@@ -100,6 +100,7 @@
     width: 1px;
     height: 1px;
     margin: auto 0;
+    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
   }
 
   @media (max-width: 991px) {

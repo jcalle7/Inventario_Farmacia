@@ -1,0 +1,109 @@
+.actionButtonsGrupo {
+    display: flex;
+    justify-content: flex-end;
+    /* margin-top: 16px; */
+    padding: 8px;
+    gap: 16px;
+  }
+  .deleteButtonGrupo {
+    align-items:flex-end;
+    border-radius: 5px;
+    border: 1px solid var(--Primary-6, #ff182b);
+    background: var(--Primary-6, #ff182b);
+    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-self: stretch;
+    gap: 8px;
+    overflow: hidden;
+    margin: auto 0;
+    padding: 8px 15px;
+    cursor: pointer;
+    }
+    
+    .iconDeleteGrupo {
+      display: flex;
+      width: 14px;
+      height: 14px;
+      margin: auto 0;
+    }
+    
+    .buttonTextDeleteGrupo {
+      align-self: stretch;
+      margin: auto 0;
+      color: var(--sds-color-text-inverse);
+      font-size: 14px;
+      color: #fff;
+    }
+    
+    @media (max-width: 991px) {
+      .deleteButtonGrupo {
+        white-space: initial;
+      }
+    }
+    
+    .newButtonGrupo {
+      align-items:flex-end;
+      border-radius: 5px;
+      cursor: pointer; border: 1px solid var(--Primary-6, #1890ff);
+      background: var(--Primary-6, #1890ff);
+      box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
+      display: flex;
+      align-self: stretch;
+      gap: 8px;
+      overflow: hidden;
+      margin: auto 0;
+      padding: 8px 15px;
+    }
+    
+    @media (max-width: 991px) {
+      .newButtonGrupo {
+        white-space: initial;
+      }
+    }
+    
+    .iconNewGrupo {
+      display: flex;
+      width: 14px;
+      height: 15px;
+      margin: auto 0;
+    }
+    
+    .buttonTextNewGrupo {
+      align-self: stretch;
+      margin: auto 0;
+      color: var(--sds-color-text-inverse);
+      font-size: 14px;
+      color: #fff;
+    }
+  
+    @media (max-width: 991px) {
+      .newButtonGrupo {
+        white-space: initial;
+      }
+    }
+  
+    .editButtonGrupo {
+      justify-content: center;
+      align-items: center;
+      align-self: stretch;
+      overflow: hidden;
+      margin: auto 0;
+      padding: 0px 10px;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+  
+    .iconEditGrupo {
+      display: flex;
+      width: 1px;
+      height: 1px;
+      margin: auto 0;
+      box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
+    }
+  
+    @media (max-width: 991px) {
+      .editButtonGrupo {
+        white-space: initial;
+      }
+    }
