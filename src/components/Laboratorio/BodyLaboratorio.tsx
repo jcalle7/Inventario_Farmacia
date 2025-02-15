@@ -28,7 +28,6 @@ export default function DataTableLaboratorio({ onEditClick }: DataTableLaborator
   };
 
   const columns: GridColDef[] = [
-    { field: 'id', headerName: 'ID', width: 50 },
     { field: 'nombre', headerName: 'Nombre', width: 180 },
     { field: 'estado', headerName: 'Estado', width: 180 },  
     {

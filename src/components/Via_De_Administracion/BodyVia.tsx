@@ -28,7 +28,6 @@ export default function DataTableVia({ onEditClick }: DataTableViaProps) {
   };
 
   const columns: GridColDef[] = [
-    { field: 'id', headerName: 'ID', width: 50 },
     { field: 'nombre', headerName: 'Nombre', width: 180 },
     { field: 'lasa', headerName: 'Lasa', width: 180 },
     { field: 'mar', headerName: 'Mar', width: 120 },

@@ -28,11 +28,12 @@ export default function NewFormaModal({open, handleClose, onSave} : {open: boole
         open={open}
         onClose={handleClose}
         maxWidth={false}
-        PaperProps={{
+        slotProps={{ paper: {
             sx: {
                 width: '80%',
                 height: '80%',
             }
+          }
         }}
       >
         <DialogTitle id="form-dialog-title">Crear Nueva Forma del Fármaco</DialogTitle>
@@ -44,7 +45,7 @@ export default function NewFormaModal({open, handleClose, onSave} : {open: boole
             noValidate
             autoComplete="off"
           >
-            <TextField id="inputNombre" label="Nombre" variant="outlined" />
+            <TextField id="inputNombre" label="Nombre" placeholder='Ingresa el nombre de una forma de un fármaco' variant="outlined" />
           </Box>
 
           {/* Checkboxes */}
@@ -77,10 +78,11 @@ export default function NewFormaModal({open, handleClose, onSave} : {open: boole
 
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} sx={{color: 'red', borderColor: 'red'}} variant='outlined'>Cancelar</Button>
+          <Button onClick={handleClose} sx={{color: 'red', borderColor: 'red'}} size='large' variant='outlined'>Cancelar</Button>
           <Button 
             onClick={onSave} 
             variant="contained" 
+            size='large'
             color="success"
             startIcon={<SaveIcon />}>
             Guardar

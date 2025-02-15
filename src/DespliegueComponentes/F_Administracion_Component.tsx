@@ -4,7 +4,7 @@ import WarningIcon from '@mui/icons-material/Warning';
 import NewAdministracionModal  from '../components/Forma_De_Administracion/modal/NewAdministracion';
 import EditAdministracionModal from '../components/Forma_De_Administracion/modal/EditAdministracion';
 import deleteIcon from '/public/Eliminar.svg';
-import newIcon from '/public/Nuevo.svg';
+import newIcon from '/public/Vector.svg';
 import { PageHeaderAdministracion } from '../components/Forma_De_Administracion/HeaderAdministracion';
 import { DeleteButtonAdministracion, NewButtonAdministracion } from '../components/Forma_De_Administracion/ButtonsAdministracion';
 import DataTableAdministracion from '../components/Forma_De_Administracion/BodyAdministracion';
@@ -78,12 +78,12 @@ export default function Administracion_Component () {
             </div>
             <div className ="actionButtonsAdministracion">
               <DeleteButtonAdministracion
-                text="Eliminar"
+                text="ELIMINAR"
                 onClick={showDeleteModal}
                 icon={<img src={deleteIcon} alt=""/>}
               />
               <NewButtonAdministracion
-                text="Nuevo"
+                text="NUEVO"
                 onClick={handleNewClick}
                 icon={<img src={newIcon} alt=""/>}
               />
@@ -102,10 +102,10 @@ export default function Administracion_Component () {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleDeleteClose} sx={{color: 'red', borderColor: 'red'}} variant="outlined">
+          <Button onClick={handleDeleteClose} sx={{color: 'red', borderColor: 'red'}} size='large' variant="outlined">
             Cancelar
           </Button>
-          <Button onClick={handleDeleteConfirm} sx={{color: 'white', borderColor: '#1890ff', backgroundColor: '#1890ff'}} variant="contained">
+          <Button onClick={handleDeleteConfirm} color='primary' size='large' variant="contained">
             OK
           </Button>
         </DialogActions>

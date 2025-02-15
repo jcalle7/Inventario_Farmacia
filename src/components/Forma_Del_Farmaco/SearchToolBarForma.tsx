@@ -3,6 +3,8 @@ import '../../CSS/Via_De_Administracion/BodyVia.css';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
+import InputAdornment from '@mui/material/InputAdornment';
+import SearchIcon from '@mui/icons-material/Search';
 
 type SearchToolBarFormaProps = {
   onSearch: (value: string) => void; // Callback para buscar
@@ -28,11 +30,18 @@ export const SearchToolBarForma: React.FC<SearchToolBarFormaProps> = ({ onSearch
                   <TextField
                     {...params}
                     label="Buscar"
+                    placeholder='Buscar una forma del fármaco...'
                     variant="outlined"
                     fullWidth
-                    InputProps={{
+                    slotProps={{ input: {
                       ...params.InputProps,
                       type: 'search',
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <SearchIcon />
+                        </InputAdornment>
+                      ),
+                    }
                     }}
                   />
                 )}

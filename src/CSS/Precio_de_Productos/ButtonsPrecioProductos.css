@@ -1,0 +1,118 @@
+.actionButtonsPrecioProductos {
+    display: flex;
+    justify-content: flex-end;
+    /* margin-top: 16px; */
+    padding: 8px;
+    gap: 16px;
+  }
+
+  .deleteButtonPrecioProductos {
+    align-items:flex-end;
+    border-radius: 5px;
+    border: 1px solid var(--Primary-6, #ff182b);
+    background: var(--Primary-6, #ff182b);
+    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-self: stretch;
+    gap: 8px;
+    overflow: hidden;
+    margin: auto 0;
+    padding: 12px 20px;
+    cursor: pointer;
+    }
+    .deleteButtonPrecioProductos:hover {
+      background-color: #cf0b0b; 
+    }
+    
+    .iconDeletePrecioProductos {
+      display: flex;
+      width: 20px;
+      height: 20px;
+      margin: auto 0;
+    }
+    
+    .buttonTextDeletePrecioProductos {
+      align-self: stretch;
+      margin: auto 0;
+      color: var(--sds-color-text-inverse);
+      font-size: 15px;
+      color: #fff;
+      font-weight: bold;
+    }
+    
+    @media (max-width: 991px) {
+      .deleteButtonPrecioProductos {
+        white-space: initial;
+      }
+    }
+    
+    .newButtonPrecioProductos {
+      align-items:flex-end;
+      border-radius: 5px;
+      cursor: pointer; border: 1px solid var(--Primary-6, #1976d2);
+      background: var(--Primary-6, #1976d2);
+      box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
+      display: flex;
+      align-self: stretch;
+      gap: 8px;
+      overflow: hidden;
+      margin: auto 0;
+      padding: 12px 20px;
+    }
+    .newButtonPrecioProductos:hover {
+      background-color: #1565c0; 
+    }
+    
+    @media (max-width: 991px) {
+      .newButtonPrecioProductos {
+        white-space: initial;
+      }
+    }
+    
+    .iconNewPrecioProductos {
+      display: flex;
+      width: 20px;
+      height: 20px;
+      margin: auto 0;
+    }
+    
+    .buttonTextNewPrecioProductos {
+      align-self: stretch;
+      margin: auto 0;
+      color: var(--sds-color-text-inverse);
+      font-size: 15px;
+      color: #fff;
+      font-weight: bold;
+    }
+  
+    @media (max-width: 991px) {
+      .newButtonPrecioProductos {
+        white-space: initial;
+      }
+    }
+  
+    .editButtonPrecioProductos {
+      justify-content: center;
+      align-items: center;
+      align-self: stretch;
+      overflow: hidden;
+      margin: auto 0;
+      padding: 0px 10px;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+  
+    .iconEditPrecioProductos {
+      display: flex;
+      width: 1px;
+      height: 1px;
+      margin: auto 0;
+      box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
+    }
+  
+    @media (max-width: 991px) {
+      .editButtonPrecioProductos {
+        white-space: initial;
+      }
+    }

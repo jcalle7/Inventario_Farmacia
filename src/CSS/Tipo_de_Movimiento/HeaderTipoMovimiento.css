@@ -1,0 +1,42 @@
+
+.pageHeaderTipoMovimiento {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    }
+    
+    .titleTipoMovimiento {
+      display: flex;
+      flex-direction: column;
+      margin-top: 3px !important;
+      min-height: 80px;
+      align-items: start;
+      font-size: 50px;
+      color: var(--character-title-85, rgba(0, 0, 0, 0.85));
+      white-space: nowrap;
+      justify-content: center;
+      font-weight: bold;
+      margin: auto;
+      white-space: nowrap;
+      line-height: 1.4;
+      color: #333;
+    }
+    
+    
+    @media (max-width: 991px) {
+      .pageHeaderTipoMovimiento {
+        max-width: 100%;
+        padding: 0 20px;
+      }
+      
+      .headingTipoMovimiento {
+        max-width: 100%;
+        white-space: initial;
+      }
+      
+      .titleTipoMovimiento {
+        white-space: initial;
+      }
+    }

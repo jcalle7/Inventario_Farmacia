@@ -29,7 +29,6 @@ export default function DataTable({ onEditClick }: DataTableProps) {
 
 
   const columns: GridColDef[] = [
-    { field: 'id', headerName: 'ID', width: 50 },
     { field: 'nombre', headerName: 'Nombre', width: 180 },
     { field: 'observación', headerName: 'Observación', width: 180 },
     { field: 'mar', headerName: 'Mar', width: 120 },
@@ -80,6 +79,7 @@ export default function DataTable({ onEditClick }: DataTableProps) {
         page={page} 
         onPageChange={handleChangePage} 
         onRowsPerPageChange={handleChangeRowsPerPage} 
+        labelRowsPerPage="Filas por página:" 
       />
     </Paper>
   );

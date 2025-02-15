@@ -1,0 +1,157 @@
+.actionButtonsFarmacos {
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px;
+    gap: 16px;
+  }
+
+  .excelButtonFarmacos {
+    align-items:flex-end;
+    border-radius: 5px;
+    border: 1px solid var(--Primary-6, #1976d2);
+    background: var(--Primary-6, #1976d2);
+    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-self: stretch;
+    gap: 8px;
+    overflow: hidden;
+    margin: auto 0;
+    padding: 12px 20px;
+    cursor: pointer;
+    }
+    .excelButtonFarmacos:hover {
+      background-color: #1259a1; 
+    }
+    
+    .iconExcelFarmacos {
+      display: flex;
+      width: 20px;
+      height: 20px;
+      margin: auto 0;
+    }
+    
+    .buttonTextExcelFarmacos {
+      align-self: stretch;
+      margin: auto 0;
+      color: var(--sds-color-text-inverse);
+      font-size: 15px;
+      color: #fff;
+      font-weight: bold;
+    }
+    
+    @media (max-width: 991px) {
+      .excelButtonFarmacos {
+        white-space: initial;
+      }
+    }
+
+  .deleteButtonFarmacos {
+    align-items:flex-end;
+    border-radius: 5px;
+    border: 1px solid var(--Primary-6, #ff182b);
+    background: var(--Primary-6, #ff182b);
+    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-self: stretch;
+    gap: 8px;
+    overflow: hidden;
+    margin: auto 0;
+    padding: 12px 20px;
+    cursor: pointer;
+    }
+    .deleteButtonFarmacos:hover {
+      background-color: #cf0b0b; 
+    }
+    
+    .iconDeleteFarmacos {
+      display: flex;
+      width: 20px;
+      height: 20px;
+      margin: auto 0;
+    }
+    
+    .buttonTextDeleteFarmacos {
+      align-self: stretch;
+      margin: auto 0;
+      color: var(--sds-color-text-inverse);
+      font-size: 15px;
+      color: #fff;
+      font-weight: bold;
+    }
+    
+    @media (max-width: 991px) {
+      .deleteButtonFarmacos {
+        white-space: initial;
+      }
+    }
+    
+    .newButtonFarmacos {
+      align-items:flex-end;
+      border-radius: 5px;
+      cursor: pointer; border: 1px solid var(--Primary-6, #2E7D32);
+      background: var(--Primary-6, #2E7D32);
+      box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
+      display: flex;
+      align-self: stretch;
+      gap: 8px;
+      overflow: hidden;
+      margin: auto 0;
+      padding: 12px 20px;
+    }
+    .newButtonFarmacos:hover {
+      background-color: #29652c; 
+    }
+    
+    @media (max-width: 991px) {
+      .newButtonFarmacos {
+        white-space: initial;
+      }
+    }
+    
+    .iconNewFarmacos {
+      display: flex;
+      width: 20px;
+      height: 20px;
+      margin: auto 0;
+    }
+    
+    .buttonTextNewFarmacos {
+      align-self: stretch;
+      margin: auto 0;
+      color: var(--sds-color-text-inverse);
+      font-size: 15px;
+      color: #fff;
+      font-weight: bold;
+    }
+  
+    @media (max-width: 991px) {
+      .newButtonFarmacos {
+        white-space: initial;
+      }
+    }
+  
+    .editButtonFarmacos {
+      justify-content: center;
+      align-items: center;
+      align-self: stretch;
+      overflow: hidden;
+      margin: auto 0;
+      padding: 0px 10px;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+  
+    .iconEditFarmacos {
+      display: flex;
+      width: 1px;
+      height: 1px;
+      margin: auto 0;
+      box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
+    }
+  
+    @media (max-width: 991px) {
+      .editButtonFarmacos {
+        white-space: initial;
+      }
+    }

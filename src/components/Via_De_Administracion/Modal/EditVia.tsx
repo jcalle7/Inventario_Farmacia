@@ -17,11 +17,12 @@ export default function EditViaModal({open, handleClose, onSave} : {open: boolea
         open={open}
         onClose={handleClose}
         maxWidth={false}
-        PaperProps={{
+        slotProps={{ paper: {
             sx: {
                 width: '80%',
                 height: '80%',
             }
+          }
         }}
       >
         <DialogTitle id="form-dialog-title">Editar Via de Administración</DialogTitle>
@@ -33,7 +34,7 @@ export default function EditViaModal({open, handleClose, onSave} : {open: boolea
             noValidate
             autoComplete="off"
           >
-            <TextField id="inputNombre" label="Nombre" variant="outlined" />
+            <TextField id="inputNombre" label="Nombre" placeholder='Ingresa el nombre de una vía de administración' variant="outlined" />
           </Box>
 
           {/* Checkboxes */}
@@ -56,10 +57,11 @@ export default function EditViaModal({open, handleClose, onSave} : {open: boolea
 
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} sx={{color: 'red', borderColor: 'red'}} variant='outlined'>Cancelar</Button>
+          <Button onClick={handleClose} sx={{color: 'red', borderColor: 'red'}} size='large' variant='outlined'>Cancelar</Button>
           <Button 
             onClick={onSave} 
             variant="contained" 
+            size='large'
             color="success"
             startIcon={<SaveIcon />}>
             Guardar

@@ -3,6 +3,8 @@ import '../../CSS/Principio_Activo/BodyPrincipio.css';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
+import InputAdornment from '@mui/material/InputAdornment';
+import SearchIcon from '@mui/icons-material/Search';
 
 type SearchToolbarProps = {
   onSearch: (value: string) => void; // Callback para buscar
@@ -29,11 +31,19 @@ export const SearchToolbar: React.FC<SearchToolbarProps> = ({ onSearch }) => {
                   <TextField
                     {...params}
                     label="Buscar"
+                    placeholder='Buscar un principio activo...'
                     variant="outlined"
                     fullWidth
-                    InputProps={{
+                    slotProps={{ 
+                      input: { 
                       ...params.InputProps,
                       type: 'search',
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <SearchIcon />
+                        </InputAdornment>
+                      ),
+                    }
                     }}
                   />
                 )}

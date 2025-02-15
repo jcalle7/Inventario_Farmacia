@@ -4,7 +4,7 @@ import WarningIcon from '@mui/icons-material/Warning';
 import NewLaboratorioModal  from '../components/Laboratorio/modal/NewLaboratorio';
 import EditLaboratorioModal from '../components/Laboratorio/modal/EditLaboratorio';
 import deleteIcon from '/public/Eliminar.svg';
-import newIcon from '/public/Nuevo.svg';
+import newIcon from '/public/Vector.svg';
 import { PageHeaderLaboratorio } from '../components/Laboratorio/HeaderLaboratorio';
 import SearchToolBarLaboratorio from '../components/Laboratorio/SearchToolBarLaboratorio';
 import { DeleteButtonLaboratorio, NewButtonLaboratorio } from '../components/Laboratorio/ButtonsLaboratorio';
@@ -78,12 +78,12 @@ export default function Laboratorio_Component () {
             </div>
             <div className ="actionButtonsLaboratorio">
               <DeleteButtonLaboratorio
-                text="Eliminar"
+                text="ELIMINAR"
                 onClick={showDeleteModal}
                 icon={<img src={deleteIcon} alt=""/>}
               />
               <NewButtonLaboratorio
-                text="Nuevo"
+                text="NUEVO"
                 onClick={handleNewClick}
                 icon={<img src={newIcon} alt=""/>}
               />
@@ -102,10 +102,10 @@ export default function Laboratorio_Component () {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleDeleteClose} sx={{color: 'red', borderColor: 'red'}} variant="outlined">
+          <Button onClick={handleDeleteClose} sx={{color: 'red', borderColor: 'red'}} size='large' variant="outlined">
             Cancelar
           </Button>
-          <Button onClick={handleDeleteConfirm} sx={{color: 'white', borderColor: '#1890ff', backgroundColor: '#1890ff'}} variant="contained">
+          <Button onClick={handleDeleteConfirm} color='primary' size='large' variant="contained">
             OK
           </Button>
         </DialogActions>

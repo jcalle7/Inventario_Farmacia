@@ -1,0 +1,53 @@
+.bodyContainerTipoMovimiento {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh; /* Ocupa toda la pantalla */
+    padding: 15px;
+    box-sizing: border-box;
+}
+  
+.searchToolbarTipoMovimiento {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-color: #fff;
+    width: 100%;
+}
+  
+.tableContainerTipoMovimiento {
+    flex: 1; /* Se expande para ocupar el espacio disponible */
+    overflow-y: auto; /* Añade scroll si hay demasiadas filas */
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+  
+.headerSearchContainerTipoMovimiento {
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 0 !important;
+}
+  
+  
+@media (max-width: 991px) {
+    .searchToolbarTipoMovimiento {
+    max-width: 100%;
+    }
+}
+       
+.inputContentTipoMovimiento {
+    width: 450px;
+    padding: 4px 15px !important;
+}
+  
+    
+@media (max-width: 991px) {
+    .inputContentTipoMovimiento {
+    white-space: initial;
+    }
+}

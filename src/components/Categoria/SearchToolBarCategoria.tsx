@@ -1,8 +1,10 @@
 import React from 'react';
-import '../../CSS/Forma_De_Administracion/BodyAdministracion.css';
+import '../../CSS/Categoria/BodyCategoria.css';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
+import InputAdornment from '@mui/material/InputAdornment';
+import SearchIcon from '@mui/icons-material/Search';
 
 type SearchToolBarCategoriaProps = {
   onSearch: (value: string) => void; // Callback para buscar
@@ -28,11 +30,18 @@ export const SearchToolBarCategoria: React.FC<SearchToolBarCategoriaProps> = ({ 
                   <TextField
                     {...params}
                     label="Buscar"
+                    placeholder='Buscar una categoría...'
                     variant="outlined"
                     fullWidth
-                    InputProps={{
+                    slotProps={{ input: {
                       ...params.InputProps,
                       type: 'search',
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <SearchIcon />
+                        </InputAdornment>
+                      ),
+                    }
                     }}
                   />
                 )}

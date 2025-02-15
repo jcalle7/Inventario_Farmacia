@@ -12,11 +12,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* margin-bottom: 16px; */
+  /*margin-bottom: 16px;*/
   padding: 15px;
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 80%;
+  /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+  width: 100%;
 }
 
   .tableContainer {
@@ -29,9 +29,9 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
-/* .Space{
+/*.Space{
    width: 100%;
-} */
+}*/
 
 .headerSearchContainer{
   height: fit-content;
@@ -50,7 +50,7 @@
   
   
   .inputContent {
-    width: 380px !important;
+    width: 460px !important;
     padding: 4px 15px !important;
   }
 

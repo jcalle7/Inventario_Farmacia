@@ -17,11 +17,12 @@ export default function EditAdministracionModal({open, handleClose, onSave} : {o
         open={open}
         onClose={handleClose}
         maxWidth={false}
-        PaperProps={{
+        slotProps={{ paper: {
             sx: {
                 width: '80%',
                 height: '80%',
             }
+          }
         }}
       >
         <DialogTitle id="form-dialog-title">Editar Forma de Administración</DialogTitle>
@@ -33,7 +34,7 @@ export default function EditAdministracionModal({open, handleClose, onSave} : {o
             noValidate
             autoComplete="off"
           >
-            <TextField id="inputNombre" label="Nombre" variant="outlined" />
+            <TextField id="inputNombre" label="Nombre" placeholder='Ingresa el nombre de una forma de administración' variant="outlined" />
           </Box>
 
           {/* Checkboxes */}
@@ -48,10 +49,11 @@ export default function EditAdministracionModal({open, handleClose, onSave} : {o
 
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} sx={{color: 'red', borderColor: 'red'}} variant='outlined'>Cancelar</Button>
+          <Button onClick={handleClose} sx={{color: 'red', borderColor: 'red'}} size='large' variant='outlined'>Cancelar</Button>
           <Button 
             onClick={onSave} 
             variant="contained" 
+            size='large'
             color="success"
             startIcon={<SaveIcon />}>
             Guardar

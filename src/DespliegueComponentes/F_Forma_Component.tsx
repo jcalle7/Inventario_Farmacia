@@ -5,7 +5,7 @@ import WarningIcon from '@mui/icons-material/Warning';
 import NewFormaModal  from '../components/Forma_Del_Farmaco/modal/NewForma';
 import EditFormaModal from '../components/Forma_Del_Farmaco/modal/EditForma';
 import deleteIcon from '/public/Eliminar.svg';
-import newIcon from '/public/Nuevo.svg';
+import newIcon from '/public/Vector.svg';
 import { DeleteButtonForma, NewButtonForma } from '../components/Forma_Del_Farmaco/ButtonsForma';
 import { PageHeaderForma } from '../components/Forma_Del_Farmaco/HeaderForma';
 import SearchToolBarForma from '../components/Forma_Del_Farmaco/SearchToolBarForma';
@@ -78,12 +78,12 @@ export default function Forma_Component () {
             </div>
             <div className ="actionButtonsForma">
               <DeleteButtonForma
-                text="Eliminar"
+                text="ELIMINAR"
                 onClick={showDeleteModal}
                 icon={<img src={deleteIcon} alt=""/>}
               />
               <NewButtonForma
-                text="Nuevo"
+                text="NUEVO"
                 onClick={handleNewClick}
                 icon={<img src={newIcon} alt=""/>}
               />
@@ -102,10 +102,10 @@ export default function Forma_Component () {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleDeleteClose} sx={{color: 'red', borderColor: 'red'}} variant="outlined">
+          <Button onClick={handleDeleteClose} sx={{color: 'red', borderColor: 'red'}} size='large' variant="outlined">
             Cancelar
           </Button>
-          <Button onClick={handleDeleteConfirm} sx={{color: 'white', borderColor: '#1890ff', backgroundColor: '#1890ff'}} variant="contained">
+          <Button onClick={handleDeleteConfirm} color='primary' size='large' variant="contained">
             OK
           </Button>
         </DialogActions>

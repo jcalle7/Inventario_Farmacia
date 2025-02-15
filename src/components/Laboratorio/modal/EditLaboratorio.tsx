@@ -17,14 +17,15 @@ export default function EditLaboratorioModal({open, handleClose, onSave} : {open
         open={open}
         onClose={handleClose}
         maxWidth={false}
-        PaperProps={{
+        slotProps={{ paper: {
             sx: {
                 width: '80%',
                 height: '80%',
             }
+          }
         }}
     >
-        <DialogTitle id="form-dialog-title">Crear Nuevo Laboratorio</DialogTitle>
+        <DialogTitle id="form-dialog-title">Editar Laboratorio</DialogTitle>
         <DialogContent>
           {/* Inputs de texto */}
           <Box
@@ -33,7 +34,7 @@ export default function EditLaboratorioModal({open, handleClose, onSave} : {open
             noValidate
             autoComplete="off"
         >
-            <TextField id="inputNombre" label="Nombre" variant="outlined" />
+            <TextField id="inputNombre" label="Nombre" placeholder='Ingresa el nombre de un laboratorio' variant="outlined" />
           </Box>
 
           {/* Checkboxes */}
@@ -48,10 +49,11 @@ export default function EditLaboratorioModal({open, handleClose, onSave} : {open
 
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} sx={{color: 'red', borderColor: 'red'}} variant='outlined'>Cancelar</Button>
+          <Button onClick={handleClose} sx={{color: 'red', borderColor: 'red'}} size='large' variant='outlined'>Cancelar</Button>
           <Button 
             onClick={onSave} 
             variant="contained" 
+            size='large'
             color="success"
             startIcon={<SaveIcon />}>
             Guardar

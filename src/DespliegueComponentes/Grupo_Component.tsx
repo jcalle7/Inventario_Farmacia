@@ -8,7 +8,7 @@ import WarningIcon from '@mui/icons-material/Warning';
 import NewGrupoModal  from '../components/Grupo_Terapeutico/modal/NewGrupo';
 import EditGrupoModal from '../components/Grupo_Terapeutico/modal/EditGrupo';
 import deleteIcon from '/public/Eliminar.svg';
-import newIcon from '/public/Nuevo.svg';
+import newIcon from '/public/Vector.svg';
 
 export default function Grupo_Component () {
 
@@ -78,12 +78,12 @@ export default function Grupo_Component () {
             </div>
             <div className ="actionButtonsGrupo">
               <DeleteButtonGrupo
-                text="Eliminar"
+                text="ELIMINAR"
                 onClick={showDeleteModal}
                 icon={<img src={deleteIcon} alt=""/>}
               />
               <NewButtonGrupo
-                text="Nuevo"
+                text="NUEVO"
                 onClick={handleNewClick}
                 icon={<img src={newIcon} alt=""/>}
               />
@@ -102,10 +102,10 @@ export default function Grupo_Component () {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleDeleteClose} sx={{color: 'red', borderColor: 'red'}} variant="outlined">
+          <Button onClick={handleDeleteClose} sx={{color: 'red', borderColor: 'red'}} size='large' variant="outlined">
             Cancelar
           </Button>
-          <Button onClick={handleDeleteConfirm} sx={{color: 'white', borderColor: '#1890ff', backgroundColor: '#1890ff'}} variant="contained">
+          <Button onClick={handleDeleteConfirm} color='primary' size='large' variant="contained">
             OK
           </Button>
         </DialogActions>

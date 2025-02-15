@@ -27,11 +27,12 @@ export default function EditFormaModal({open, handleClose, onSave} : {open: bool
         open={open}
         onClose={handleClose}
         maxWidth={false}
-        PaperProps={{
+        slotProps={{ paper: {
             sx: {
                 width: '80%',
                 height: '80%',
             }
+          }
         }}
       >
         <DialogTitle id="form-dialog-title">Editar Forma del Fármaco</DialogTitle>
@@ -43,7 +44,7 @@ export default function EditFormaModal({open, handleClose, onSave} : {open: bool
             noValidate
             autoComplete="off"
           >
-            <TextField id="inputNombre" label="Nombre" variant="outlined" />
+            <TextField id="inputNombre" label="Nombre" placeholder='Ingresa el nombre de una forma de un fármaco' variant="outlined" />
           </Box>
 
           {/* Checkboxes */}
@@ -76,10 +77,11 @@ export default function EditFormaModal({open, handleClose, onSave} : {open: bool
 
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} sx={{color: 'red', borderColor: 'red'}} variant='outlined'>Cancelar</Button>
+          <Button onClick={handleClose} sx={{color: 'red', borderColor: 'red'}} size='large' variant='outlined'>Cancelar</Button>
           <Button 
             onClick={onSave} 
             variant="contained" 
+            size='large'
             color="success"
             startIcon={<SaveIcon />}>
             Guardar

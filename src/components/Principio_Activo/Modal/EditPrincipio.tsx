@@ -27,11 +27,12 @@ export default function EditPrincipioModal({open, handleClose, onSave} : {open: 
         open={open}
         onClose={handleClose}
         maxWidth={false}
-        PaperProps={{
+        slotProps={{ paper: {
             sx: {
                 width: '80%',
                 height: '80%',
             }
+          }
         }}
       >
         <DialogTitle id="form-dialog-title">Editar Principio Activo</DialogTitle>
@@ -43,8 +44,8 @@ export default function EditPrincipioModal({open, handleClose, onSave} : {open: 
             noValidate
             autoComplete="off"
           >
-            <TextField id="inputNombre" label="Nombre" variant="outlined" />
-            <TextField id="inputObservación" label="Observación" variant="outlined" />
+            <TextField id="inputNombre" label="Nombre" placeholder='Ingresa el nombre de un principio activo' variant="outlined" />
+            <TextField id="inputObservación" label="Observación" placeholder='Ingresa alguna observación sobre este principio activo' variant="outlined" />
           </Box>
 
           {/* Checkboxes */}

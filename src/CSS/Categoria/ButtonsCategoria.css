@@ -16,14 +16,17 @@
     gap: 8px;
     overflow: hidden;
     margin: auto 0;
-    padding: 8px 15px;
+    padding: 12px 20px;
     cursor: pointer;
+    }
+    .deleteButtonCategoria:hover {
+      background-color: #cf0b0b; 
     }
     
     .iconDeleteCategoria {
       display: flex;
-      width: 14px;
-      height: 14px;
+      width: 20px;
+      height: 20px;
       margin: auto 0;
     }
     
@@ -31,8 +34,9 @@
       align-self: stretch;
       margin: auto 0;
       color: var(--sds-color-text-inverse);
-      font-size: 14px;
+      font-size: 15px;
       color: #fff;
+      font-weight: bold;
     }
     
     @media (max-width: 991px) {
@@ -44,15 +48,18 @@
     .newButtonCategoria {
       align-items:flex-end;
       border-radius: 5px;
-      cursor: pointer; border: 1px solid var(--Primary-6, #1890ff);
-      background: var(--Primary-6, #1890ff);
+      cursor: pointer; border: 1px solid var(--Primary-6, #1976d2);
+      background: var(--Primary-6, #1976d2);
       box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
       display: flex;
       align-self: stretch;
       gap: 8px;
       overflow: hidden;
       margin: auto 0;
-      padding: 8px 15px;
+      padding: 12px 20px;
+    }
+    .newButtonCategoria:hover {
+      background-color: #1259a1; 
     }
     
     @media (max-width: 991px) {
@@ -63,8 +70,8 @@
     
     .iconNewCategoria {
       display: flex;
-      width: 14px;
-      height: 15px;
+      width: 20px;
+      height: 20px;
       margin: auto 0;
     }
     
@@ -72,8 +79,9 @@
       align-self: stretch;
       margin: auto 0;
       color: var(--sds-color-text-inverse);
-      font-size: 14px;
+      font-size: 15px;
       color: #fff;
+      font-weight: bold;
     }
   
     @media (max-width: 991px) {
