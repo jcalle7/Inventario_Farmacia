@@ -36,14 +36,15 @@ export default function NewPrecioProductosModal({open, handleClose, onSave} : {o
             noValidate
             autoComplete="off"
           >
-            <TextField id="inputLista" label="Lista" variant="outlined" />
-            <TextField id="inputItem" label="Ítem" variant="outlined" />
+            <TextField id="inputLista" label="Lista" variant="outlined" placeholder='Ingrese una lista de precio de productos' />
+            <TextField id="inputItem" label="Ítem" variant="outlined" placeholder='Ingrese el nombre de un ítem' />
             <FormControl fullWidth sx={{ m: 1 }}>
             <InputLabel htmlFor="outlined-adornment-amount">Precio</InputLabel>
             <OutlinedInput
               id="outlined-adornment-amount"
               startAdornment={<InputAdornment position="start">$</InputAdornment>}
               label="Precio"
+              placeholder='Ingrese el precio de un producto'
               type="number"
               inputProps={{ min: 0 }}
             />
@@ -51,6 +52,7 @@ export default function NewPrecioProductosModal({open, handleClose, onSave} : {o
           <TextField
             id="inputDescuento"
             label="Descuento (%)"
+            placeholder='Ingrese el descuento de un producto'
             variant="outlined"
             type="number"
             slotProps={{ htmlInput: {min: 0, max: 100 } }}

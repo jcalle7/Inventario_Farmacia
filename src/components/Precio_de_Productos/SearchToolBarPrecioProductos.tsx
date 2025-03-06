@@ -33,7 +33,7 @@ export const SearchToolBarPrecioProductos: React.FC<SearchToolBarPrecioProductos
                     label="Buscar"
                     variant="outlined"
                     placeholder='Busca el precio de un producto...'
-                    color='secondary'
+                    color='primary'
                     fullWidth
                     slotProps={{ 
                         input: {
